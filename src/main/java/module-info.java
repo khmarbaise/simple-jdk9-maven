@@ -1,5 +1,6 @@
 module com.corporate.project {
   requires java.base;
-  requires log4j.api;
+  requires org.apache.logging.log4j;
+  requires org.apache.logging.log4j.core;
   exports com.corporate.project;
 }
