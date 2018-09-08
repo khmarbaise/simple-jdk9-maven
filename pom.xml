@@ -12,8 +12,9 @@
   <groupId>com.corporate.project</groupId>
   <artifactId>single-jar</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <packaging>jlink</packaging>
    <properties>
-     <maven.compiler.release>10</maven.compiler.release>
+     <maven.compiler.release>9</maven.compiler.release>
    </properties>
   <scm>
     <developerConnection>scm:git:ssh://git@github.com/khmarbaise/simple-jdk9-maven.git</developerConnection>
@@ -22,16 +23,29 @@
     <tag>HEAD</tag>
   </scm>
   <dependencies>
-    <!-- log4j -->
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-api</artifactId>
       <version>2.11.1</version>
     </dependency>
-    <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.11.1</version>
-    </dependency>
   </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-jlink-plugin</artifactId>
+        <version>3.0.0-alpha-2-SNAPSHOT</version>
+        <extensions>true</extensions>
+        <!--
+        <executions>
+          <execution>
+            <id>build-image</id>
+            <goals>
+              <goal>jlink</goal>
+            </goals>
+          </execution>
+        </executions>
+        -->
+      </plugin>
+    </plugins>
+  </build>
 </project>
